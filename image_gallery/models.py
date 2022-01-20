@@ -15,7 +15,7 @@ class Image(models.Model):
 
     # Utilities
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    date_created = models.DateTimeField(blank=True, null=True, default=timezone.now())
+    date_created = models.DateTimeField(blank=True, null=True)
 
     imageSource = models.ImageField(upload_to='images/')
 
