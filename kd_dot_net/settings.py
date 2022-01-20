@@ -29,7 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'kyledonahue.net',
-    '159.223.102.219'
+    '159.223.102.219',
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -60,7 +62,10 @@ ROOT_URLCONF = 'kd_dot_net.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'kd_dot_net' 'templates'),
+            os.path.join(BASE_DIR, 'image_gallery', 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,8 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-STATIC_ROOT = '/home/website/static_files'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'kd_dot_net', 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # Media files
 MEDIA_URL = 'media/'

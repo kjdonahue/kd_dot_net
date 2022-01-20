@@ -3,3 +3,6 @@ media/images/*
 
 # Don't track the DB
 db.sqlite3
+
+# Don't track static files
+static/*
