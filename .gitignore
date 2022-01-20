@@ -1,0 +1,5 @@
+# Don't track any images
+media/images/*
+
+# Don't track the DB
+db.sqlite3
