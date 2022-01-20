@@ -3,7 +3,11 @@ from django.shortcuts import get_list_or_404, render
 from image_gallery.models import Image
 
 def index(request):
-    image_list = get_list_or_404(Image, showOnFrontPage=True)
+    try:
+        image_list = Image.objects.get(showOnFrontPage=True)
+    except Image.DoesNotExist:
+        image_list = []
+        
     return render(request, 'kd_dot_net/index.html', { 
         "image_list": image_list,
         "image_ids": [image.id for image in image_list]
