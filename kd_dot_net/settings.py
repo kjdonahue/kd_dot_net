@@ -63,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'kd_dot_net' 'templates'),
+            os.path.join(BASE_DIR, 'kd_dot_net', 'templates'),
             os.path.join(BASE_DIR, 'image_gallery', 'templates')
         ],
         'APP_DIRS': True,
