@@ -1,5 +1,0 @@
----
-deployment:
-    tasks:
-        - export DEPLOYPATH=/home/kylehkpn/django_app
-        - /bin/cp -R /home/kylehkpn/repositories/kd_dot_net $DEPLOYPATH

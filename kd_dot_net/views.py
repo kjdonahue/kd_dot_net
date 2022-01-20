@@ -1,4 +1,4 @@
-from django.shortcuts import get_list_or_404, render
+from django.shortcuts import render
 
 from image_gallery.models import Image
 
@@ -10,7 +10,8 @@ def index(request):
         
     return render(request, 'kd_dot_net/index.html', { 
         "image_list": image_list,
-        "image_ids": [image.id for image in image_list]
+        "image_ids": [image.id for image in image_list],
+        "display_type": "uniform" # this is a CSS class forming the 3x3 grid on the homepage
     })
 
 def about(request):
@@ -20,7 +21,8 @@ def portfolio(request):
     image_list = Image.objects.all()
     return render(request, 'kd_dot_net/portfolio.html', { 
         "image_list": image_list,
-        "image_ids": [image.id for image in image_list]
+        "image_ids": [image.id for image in image_list],
+        "display_type": "ragged" # CSS class forming the random-seeming layout of the portfolio
     })
 
 def contact(request):

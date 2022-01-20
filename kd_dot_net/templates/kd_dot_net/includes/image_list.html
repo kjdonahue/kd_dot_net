@@ -1,5 +1,6 @@
 {% if image_list %} 
-    <ul class="uniform">
+    <!-- use a variable to control ragged vs. uniform display, so index and portfolio can use the same template here -->
+    <ul class="{{ display_type }}">
         {% for image in image_list %}
             <li>
                 {% include "image_gallery/imageTile.html" %}
