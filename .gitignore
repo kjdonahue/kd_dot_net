@@ -6,3 +6,6 @@ db.sqlite3
 
 # Don't track static files
 static/*
+
+# Don't track environment stuff
+.env
