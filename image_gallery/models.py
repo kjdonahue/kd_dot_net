@@ -2,8 +2,6 @@ from time import timezone
 from django.db import models
 from uuid import uuid4
 
-from django_resized import ResizedImageField
-
 # partially borrowed from: https://python.plainenglish.io/how-to-create-a-django-image-gallery-website-in-2-hours-bdb42464fbfe
 # with modifications (no category)
 
