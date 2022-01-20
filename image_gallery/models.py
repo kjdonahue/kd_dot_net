@@ -14,7 +14,7 @@ class Image(models.Model):
     showOnFrontPage = models.BooleanField(blank=False, null=False, default=False)
 
     # Utilities
-    uniqueId = models.CharField(null=True, blank=True, max_length=100, default=timezone.now())
+    uniqueId = models.CharField(null=True, blank=True, max_length=100)
     date_created = models.DateTimeField(blank=True, null=True, default=timezone.now())
 
     imageSource = models.ImageField(upload_to='images/')
