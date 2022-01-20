@@ -14,12 +14,10 @@ class Image(models.Model):
     showOnFrontPage = models.BooleanField(blank=False, null=False, default=False)
 
     # Utilities
-    uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    date_created = models.DateTimeField(blank=True, null=True)
+    uniqueId = models.CharField(null=True, blank=True, max_length=100, default=timezone.now())
+    date_created = models.DateTimeField(blank=True, null=True, default=timezone.now())
 
     imageSource = models.ImageField(upload_to='images/')
-
-    foobar = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return self.uniqueId
