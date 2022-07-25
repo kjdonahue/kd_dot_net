@@ -10,6 +10,7 @@ static/*
 # Don't track the pycache
 kd_dot_net/__pycache__/*
 image_gallery/__pycache__/*
+__pycache__/*
 
-# Don't track the secret key
+# Don't track environment stuff / the secret key
 .env

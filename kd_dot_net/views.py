@@ -4,7 +4,7 @@ from image_gallery.models import Image
 
 def index(request):
     try:
-        image_list = Image.objects.get(showOnFrontPage=True)
+        image_list = Image.objects.filter(showOnFrontPage=True)
     except Image.DoesNotExist:
         image_list = []
         
