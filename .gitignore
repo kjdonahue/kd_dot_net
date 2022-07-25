@@ -7,5 +7,9 @@ db.sqlite3
 # Don't track static files
 static/*
 
+# Don't track the pycache
+kd_dot_net/__pycache__/*
+image_gallery/__pycache__/*
+
 # Don't track the secret key
 .env
