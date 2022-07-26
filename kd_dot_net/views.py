@@ -15,15 +15,22 @@ def index(request):
     })
 
 def about(request):
-    return render(request, 'kd_dot_net/about.html')
+    return render(request, 'kd_dot_net/about.html', {
+        "content_style": "about has-background",
+        "nav_type": "thin"
+    })
 
 def portfolio(request):
     image_list = Image.objects.all()
     return render(request, 'kd_dot_net/portfolio.html', { 
         "image_list": image_list,
         "image_ids": [image.id for image in image_list],
-        "display_type": "ragged" # CSS class forming the random-seeming layout of the portfolio
+        "display_type": "ragged", # CSS class forming the random-seeming layout of the portfolio
+        "nav_type": "thin"
     })
 
 def contact(request):
-    return render(request, 'kd_dot_net/contact.html')
+    return render(request, 'kd_dot_net/contact.html', {
+        "content_style": "contact has-background",
+        "nav_type": "thin"
+    })
