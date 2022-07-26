@@ -1,0 +1,18 @@
+{% extends 'kd_dot_net/base.html' %}
+
+{% load static %}
+
+{% block additional_head %}
+<link href="{% static 'kd_dot_net/styles/cardDisplay.css' %}" type="text/css" rel="stylesheet">
+<link href="{% static 'kd_dot_net/styles/blog.css' %}" type="text/css" rel="stylesheet">
+{% endblock additional_head %}
+
+{% block title %} - The Great Divide{% endblock title %}
+
+{% block content %}
+
+{% include "blog/post_list.html" %}
+
+{% include "blog/pagination.html" with page=posts %}
+
+{% endblock content %}
