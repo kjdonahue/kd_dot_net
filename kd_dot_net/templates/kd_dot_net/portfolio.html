@@ -4,6 +4,10 @@
 
 {% block title %} - Photos {% endblock title %}
 
+{% block additional_head %}
+<script type="text/javascript" src="{% static 'kd_dot_net/js/javascript.js' %}"></script>
+{% endblock additional_head %}
+
 {% block content %}
     <div id="gallery">
         {% include "kd_dot_net/includes/image_list.html" %}

@@ -26,6 +26,20 @@ ul.pagination {
     background-position: top;
 }
 
+.article-body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img.bmc-icon {
+    max-height: 1rem;
+}
+
 .scrollpane {
     overflow-y: auto;
+}
+
+.buy-coffee-card {
+    background-color: gainsboro; /* interesting */
+    border-radius: 3px;
+    padding-left: 1em;
 }
