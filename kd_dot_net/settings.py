@@ -27,7 +27,7 @@ load_dotenv(find_dotenv())
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'kyledonahue.net',
@@ -40,7 +40,14 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # Image gallery part of the app
     'image_gallery.apps.ImageGalleryConfig',
+    # Great Divide blog
+    'blog',
+    # Rich text editor for blog posts
+    'ckeditor',
+    'ckeditor_uploader',
+    # Boilerplate / Django stuff
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,7 +73,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'kd_dot_net', 'templates'),
-            os.path.join(BASE_DIR, 'image_gallery', 'templates')
+            os.path.join(BASE_DIR, 'image_gallery', 'templates'),
+            os.path.join(BASE_DIR, 'blog', 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -135,6 +143,10 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Media files
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CKEditor upload path
+# https://www.codesnail.com/integrating-ckeditor-in-django-admin-and-rendering-html-in-a-template-django-blog-4/
+CKEDITOR_UPLOAD_PATH="uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

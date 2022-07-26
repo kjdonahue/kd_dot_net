@@ -84,6 +84,19 @@ footer .copyright {
     font-size: 1.5rem;
 }
 
+.content.has-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    flex-grow: 1; /* for keeping footer on bottom */
+    margin: 0;
+}
+
+article {
+    max-width: 40rem;
+}
+
 /*--------------------- MEDIA QUERIES ---------------------*/
 /* for changing window size */
 /* GO FULL WIDTH AT LESS THAN 800 PIXELS */
