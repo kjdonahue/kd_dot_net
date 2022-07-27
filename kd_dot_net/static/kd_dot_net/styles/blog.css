@@ -11,13 +11,16 @@
     height: 100%;
 }
 
-article.description-card {
+.article.description-card {
     max-width: 60rem;
-    padding: 1.5rem 2rem;
+    padding : 1.5rem 0 0 0;
     max-height: 80vh; /* 1 unit is 1% of viewport height */
+    margin-bottom: 8vh;
+    display: flex;
+    flex-direction: column;
 }
 
-ul.pagination {
+ul.pagination.post-list-pagination {
     padding-bottom: 1rem;
 }
 
@@ -34,12 +37,12 @@ img.bmc-icon {
     max-height: 1rem;
 }
 
-.scrollpane {
+.article.description-card .scrollpane {
     overflow-y: auto;
+    padding: 0 2rem;
 }
 
-.buy-coffee-card {
-    background-color: gainsboro; /* interesting */
-    border-radius: 3px;
+.next-post-card {
     padding-left: 1em;
+    padding-top: 1em;
 }
