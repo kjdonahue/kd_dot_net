@@ -9,27 +9,33 @@
 
 {% block title %} - The Great Divide: {{post.title}}{% endblock title %}
 {% block content %}
-    <article class="description-card scrollpane">
-        <figure class="header-image">
-            <img src="{{ post.image.url }}" alt="{{post.title}}">
-        </figure>
-        <div class="mt-3">
-            <h1>{{post.title}}</h1>
-            <p class="text-muted">
-                Published {{ post.publish.date }} by <strong>{{ post.author }}</strong>
-            </p>
-        </div>
-        <div class="article-body">
-                {{post.body|safe}}
-        </div>
-
-        <div class="buy-coffee-card">
-            <img src="{% static 'kd_dot_net/styles/pics/bmc-logo-no-background.png' %}" alt="Buy me a coffee!" class="bmc-icon">
-            <a href="https://www.buymeacoffee.com/kyledonahue">
-                <span>P.S. If you want to support my ride, buy me a coffee or burrito!</span>
-            </a>
-        </div>
-        
-    </article>
-   
+<div class="article description-card">
+    <div class="scrollpane">
+        <article>
+            <figure class="header-image">
+                <img src="{{ post.image.url }}" alt="{{post.title}}">
+            </figure>
+            <div class="mt-3">
+                <h1>{{post.title}}</h1>
+                <p class="text-muted">
+                    Published {{ post.publish.date }} by <strong>{{ post.author }}</strong>
+                </p>
+            </div>
+            <div class="article-body">
+                    {{post.body|safe}}
+            </div>
+        </article>
+    </div>
+    <div class="next-post-card">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="{{ prev_post_url }}">&laquo; Previous post</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{ next_post_url }}">Next post &raquo;</a>
+            </li>
+        </ul>
+    </div>
+</div>
+ 
 {% endblock content %}

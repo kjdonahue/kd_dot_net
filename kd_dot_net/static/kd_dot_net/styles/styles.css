@@ -92,10 +92,6 @@ footer .copyright {
     margin: 0;
 }
 
-article {
-    max-width: 40rem;
-}
-
 /*--------------------- MEDIA QUERIES ---------------------*/
 /* for changing window size */
 /* GO FULL WIDTH AT LESS THAN 800 PIXELS */
