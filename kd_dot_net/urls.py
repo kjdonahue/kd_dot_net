@@ -31,5 +31,9 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
 
     #ckeditor shit
-    re_path(r'^ckeditor/', include('ckeditor_uploader.urls'))
+    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
+    #imagefit urls
+    re_path(r'^imagefit/', include('imagefit.urls'))
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,11 +1,14 @@
 # Don't track any images
-media/images/*
+media/*
 
 # Don't track the DB
 db.sqlite3
 
 # Don't track static files
 static/*
+
+# Don't track other installed modules
+src/*
 
 # Byte-compiled / optimized / DLL files
 */__pycache__/*
@@ -14,3 +17,6 @@ static/*
 
 # Don't track environment stuff / the secret key
 .env
+
+# Don't track project files
+*.code-workspace

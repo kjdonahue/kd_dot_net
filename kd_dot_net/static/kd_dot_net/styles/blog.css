@@ -20,6 +20,10 @@
     flex-direction: column;
 }
 
+.blog-card.description-card img {
+    object-fit: scale-down;
+}
+
 ul.pagination.post-list-pagination {
     padding-bottom: 1rem;
 }

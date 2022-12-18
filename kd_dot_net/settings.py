@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # imagefit for resizing images on render
+    'imagefit'
 ]
 
 MIDDLEWARE = [
@@ -143,6 +145,16 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Media files
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# imagefit configuration
+# https://github.com/vinyll/django-imagefit
+IMAGEFIT_ROOT = '' #will this work?
+IMAGEFIT_PRESETS = {
+    'frontpage-tile': {'width': 1920, 'height': 1280, 'crop': True},
+    'blog-card-tile': {'width': 1920, 'height': 1440, 'crop': True}
+}
+# enable/disable server cache
+IMAGEFIT_CACHE_ENABLED = True
 
 # CKEditor upload path
 # https://www.codesnail.com/integrating-ckeditor-in-django-admin-and-rendering-html-in-a-template-django-blog-4/
