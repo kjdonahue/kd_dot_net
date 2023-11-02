@@ -1,5 +1,3 @@
-{% load imagefit %}
-
 {% for post in posts %}
 <div class="description-card blog-card">
     <div class="card-body">
@@ -7,7 +5,7 @@
             <div class="col-md-5">
                 <div class="ratio ratio-16x9">
                     <!-- featured image --> 
-                    <img src="{{ post.image.url|resize:'blog-card-tile' }}" class="rounded featured-image-list" alt="{{post.title}}">
+                    <img src="{{ post.image.url }}" class="rounded featured-image-list" alt="{{post.title}}">
                 </div>
             </div>
             <div class="col-md-7 ps-md-3 pt-3 pt-md-0 d-flex flex-column">
