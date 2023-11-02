@@ -150,9 +150,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://github.com/vinyll/django-imagefit
 IMAGEFIT_ROOT = '' #will this work?
 IMAGEFIT_PRESETS = {
-    'frontpage-hd': {'width': 1920, 'height': 1280},
-    'frontpage-tile': { 'width': 600, 'height': 400},
-    'blog-card-tile': {'width': 600, 'height': 450}
+    'frontpage-hd': {'width': 800, 'height': 450},
+    'frontpage-tile': { 'width': 300, 'height': 200},
+    'blog-card-tile': {'width': 300, 'height': 225}
 }
 # enable/disable server cache
 IMAGEFIT_CACHE_ENABLED = True
