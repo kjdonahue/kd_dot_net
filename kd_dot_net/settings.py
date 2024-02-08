@@ -32,6 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'kyledonahue.net',
     '159.223.102.219',
+    '207.211.182.216'
     'localhost',
     '127.0.0.1'
 ]
