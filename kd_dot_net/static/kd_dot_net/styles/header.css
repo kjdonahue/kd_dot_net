@@ -21,6 +21,7 @@ header .name h1 a,
 header .name h1 a:visited {
     text-decoration: none;
     color: #561930;
+    white-space: unset;
 }
 
 /* ----- thin header for all pages except landing/home ----- */
@@ -44,20 +45,33 @@ header.thin nav ul {
     margin-top: 1rem;
 }
 
+header a {
+    white-space: nowrap;
+}
+
 /* ----- navigation ----- */
 nav {
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
 }
 
 nav ul li {
     padding: 0 2rem;
     display: inline;
     font-family: 'Ubuntu Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 nav ul li a {

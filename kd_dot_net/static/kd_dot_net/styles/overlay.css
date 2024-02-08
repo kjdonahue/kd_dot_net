@@ -9,7 +9,16 @@
 }
 
 #overlay-photo {
-    display: none;
+    display: block;
+    visibility: hidden;
+    transition: visibility 0s 200ms, opacity 200ms ease-out;
+    opacity: 0;
+}
+
+#overlay-photo.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 200ms ease-in;
 }
 
 .overlay-photo-and-arrows {
@@ -34,6 +43,9 @@
     /* this works to contain large photos regardless of portrait or landscape, but if they are small idk */
     max-height: 90vh;
     max-width: 60vw;
+
+    min-width: 10vh;
+    min-height: 10vh;
 }
 
 .photo-x {

@@ -6,25 +6,34 @@ function setOverlayPhotoSrc(id) {
         existingPhoto.remove();
     }
 
-    $.ajax({
-        url: '/photo/full/' + id,
-        dataType: 'html',
-        success: (data, status, xhr) => {
-            photoParent.insertAdjacentHTML('beforeend', data);
-            $('body').find($('#overlay-photo')).fadeIn(400);
+    fetch(`/photo/full/${id}`, {
+        headers: {
+            "Accept": "text/html"
         }
     })
-}
+    .then((response) => response.text())
+    .then((text) => {
+        photoParent.insertAdjacentHTML('beforeend', text);
 
-// function to reset the selected overlay photo and its info to empty.
-// Without this, we would get a flash of an empty img tag on fadeOut of the selectedPhoto.
-function clearVals() {
-    state.selectedPhotoIndex = null;
-    setOverlayPhotoSrc('');
+        let image = document.getElementById('enlargedPhoto');
+
+        let callback = () => document.querySelector('#overlay-photo').classList.add('visible');
+
+        image.addEventListener('load', callback);
+    });
+
+    // $.ajax({
+    //     url: '/photo/full/' + id,
+    //     dataType: 'html',
+    //     success: (data, status, xhr) => {
+    //         photoParent.insertAdjacentHTML('beforeend', data);
+    //         $('body').find($('#overlay-photo')).fadeIn(400);
+    //     }
+    // })
 }
 
 function minimizePhoto() {
-    $('body').find($('#overlay-photo')).fadeOut(200, clearVals)
+    document.querySelector('#overlay-photo').classList.remove('visible');
 }
 
 function navigateLeft() {
@@ -45,11 +54,9 @@ function enlargePhoto(event) {
     // only enlarge photo if the screen is wider than 800 px. otherwise the images fill width anyway
     if (window.innerWidth >= 800) {
         var id;
-        var target = $(event.target);
+        var target = event.target;
 
-        if (target.is('img')) {
-            id = target.attr('id');
-        }
+        id = target.id;
 
         state.selectedPhotoIndex = state.photoIds.findIndex(elem => elem === Number(id));
 
@@ -59,9 +66,9 @@ function enlargePhoto(event) {
 }
 
 // handle keypress events if enlarged photo is showing
-$(document).keyup(function(e) {
-    if (document.getElementById('overlay-photo').style.display === 'block') {
-        switch(e.keyCode) {
+document.addEventListener('keyup', (e) => {
+    if (document.getElementById('overlay-photo').style.visibility === 'visible') {
+        switch (e.code) {
             // ESC
             case 27:
                 minimizePhoto();
