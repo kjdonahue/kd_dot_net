@@ -12,18 +12,19 @@
         {% include "kd_dot_net/includes/image_list.html" %}
     </div>
     <div id="overlay-photo">
-        <div class="overlay-background" onclick="minimizePhoto()"></div>
-        <div class="overlay-photo-and-arrows">
-            <div class="arrow-box left" id="left-arrow" onclick="navigateLeft()">
-                <img src="{% static 'kd_dot_net/styles/pics/chevron-left-wht.png' %}" class="arrow" alt="left-arrow" />
+        <div class="overlay-background" onclick="minimizePhoto()">
+            <div class="overlay-photo-and-arrows">
+                <div class="arrow-box left" id="left-arrow" onclick="navigateLeft(...arguments)">
+                    <img src="{% static 'kd_dot_net/styles/pics/chevron-left-wht.png' %}" class="arrow" alt="left-arrow" />
+                </div>
+                <div class="photoContainer">
+                    <img id="enlargedPhoto" src="" alt="photo" />
+                </div>
+                <div class="arrow-box right" id="right-arrow" onclick="navigateRight(...arguments)">
+                    <img src="{% static 'kd_dot_net/styles/pics/chevron-right-wht.png' %}" class="arrow" alt="right-arrow" />
+                </div>
             </div>
-            <div class="photoContainer">
-                <img id="enlargedPhoto" src="" alt="photo" />
-            </div>
-            <div class="arrow-box right" id="right-arrow" onclick="navigateRight()">
-                <img src="{% static 'kd_dot_net/styles/pics/chevron-right-wht.png' %}" class="arrow" alt="right-arrow" />
-            </div>
+            <a onclick="minimizePhoto()" class="photo-x">x</a>
         </div>
-        <a onclick="minimizePhoto()" class="photo-x">x</a>
     </div>
 {% endblock content %}

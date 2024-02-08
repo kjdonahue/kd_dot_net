@@ -2,10 +2,6 @@ function setOverlayPhotoSrc(id) {
     let existingPhoto = document.getElementById('enlargedPhoto');
     let photoParent = document.querySelector('div.photoContainer');
 
-    if (existingPhoto) {
-        existingPhoto.remove();
-    }
-
     fetch(`/photo/full/${id}`, {
         headers: {
             "Accept": "text/html"
@@ -13,41 +9,47 @@ function setOverlayPhotoSrc(id) {
     })
     .then((response) => response.text())
     .then((text) => {
+        if (existingPhoto) {
+            existingPhoto.remove();
+        }
+        
         photoParent.insertAdjacentHTML('beforeend', text);
 
         let image = document.getElementById('enlargedPhoto');
+        image.style.visibility = 'hidden';
 
-        let callback = () => document.querySelector('#overlay-photo').classList.add('visible');
+        let overlay = document.querySelector('#overlay-photo');
+
+        if (!overlay.classList.contains('visible')) {
+            overlay.classList.add('visible');
+        }
+
+        let callback = () => { image.style.visibility = 'visible' };
 
         image.addEventListener('load', callback);
     });
-
-    // $.ajax({
-    //     url: '/photo/full/' + id,
-    //     dataType: 'html',
-    //     success: (data, status, xhr) => {
-    //         photoParent.insertAdjacentHTML('beforeend', data);
-    //         $('body').find($('#overlay-photo')).fadeIn(400);
-    //     }
-    // })
 }
 
 function minimizePhoto() {
     document.querySelector('#overlay-photo').classList.remove('visible');
 }
 
-function navigateLeft() {
+function navigateLeft(evt) {
     // if user clicks left arrow from first item in list, navigate to last photo
     var index = state.selectedPhotoIndex - 1 === -1 ? state.photoIds.length - 1 : state.selectedPhotoIndex - 1;
     state.selectedPhotoIndex = index;
     setOverlayPhotoSrc(state.photoIds[index]);
+
+    evt.stopPropagation();
 }
 
-function navigateRight() {
+function navigateRight(evt) {
     // if user clicks left arrow from first item in list, navigate to last photo
     var index = state.selectedPhotoIndex + 1 === state.photoIds.length ? 0 : state.selectedPhotoIndex + 1;
     state.selectedPhotoIndex = index;
     setOverlayPhotoSrc(state.photoIds[index]);
+
+    evt.stopPropagation();
 }
 
 function enlargePhoto(event) {
