@@ -29,6 +29,7 @@ body {
 #gallery {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 #gallery ul {
@@ -37,35 +38,37 @@ body {
     margin: 0;
 }
 
-#gallery ul.uniform {
+#gallery .uniform {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 /* DOCS https://css-tricks.com/seamless-responsive-photo-grid/ */
-#gallery ul.ragged {
-    column-count: 4;
-    line-height: 0;
-    column-gap: .5rem;
-}
 
-#gallery ul li {
+#gallery div {
     text-align: center;
 }
 
-#gallery ul.uniform li {
-    flex-basis: 33.33%;
-    flex-shrink: 0;
-    padding-bottom: 1rem;
+#gallery .uniform img {
+    flex-basis: 31%;
+    flex-shrink: 1;
+    flex-grow: 0;
+    max-width: 31%;
 }
 
-#gallery ul.ragged img {
+#gallery .ragged {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    padding: 0 0 .5rem .5rem;
 }
 
-#gallery ul.uniform img {
-    width: calc(100% - 1rem);
+#gallery .ragged img {
+    flex-basis: 0;
+    aspect-ratio: var(--ratio);
+    flex-grow: calc(var(--ratio));
+    padding: 0 0 .5rem .5rem;
+    min-width: calc(20% * var(--ratio));
 }
 
 footer {
@@ -99,15 +102,15 @@ footer .copyright {
     .content {
         width: 98%;
     }
-    #gallery ul.uniform li {
-        width: 100%;
-        padding-bottom: .5rem;
+    #gallery .uniform img {
+        min-width: 100%;
         flex-basis: 100%;
     }
-    #gallery ul.ragged {
-        column-count: 1;
+    #gallery .ragged {
+        max-width: 100%;
     }
-    #gallery ul.ragged img {
+    #gallery .ragged img {
         padding-bottom: .25rem;
+        min-width: 100%;
     }
 }

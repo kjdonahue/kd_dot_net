@@ -1,3 +1,2 @@
 {% load imagefit %}
-
-<img src="{{ image.imageSource.url|resize:'frontpage-tile'}}" alt="{{ image.altText }}" id="{{ image.id }}" onclick="enlargePhoto(...arguments)">
+<img src="{{ image.imageSource.url|resize:'frontpage-tile'}}" alt="{{ image.altText }}" id="{{ image.id }}" onclick="enlargePhoto(...arguments)" style="--ratio: {{image.imageSource.width}} / {{image.imageSource.height}}">

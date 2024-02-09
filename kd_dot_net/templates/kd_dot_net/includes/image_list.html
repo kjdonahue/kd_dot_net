@@ -1,12 +1,10 @@
 {% if image_list %} 
     <!-- use a variable to control ragged vs. uniform display, so index and portfolio can use the same template here -->
-    <ul class="{{ display_type }}">
+    <div class="{{ display_type }}">
         {% for image in image_list %}
-            <li>
                 {% include "image_gallery/imageTile.html" %}
-            </li>
         {% endfor %}
-    </ul>
+    </div>
     <script type="text/javascript">
         var state = {
             selectedPhotoIndex: null,
